@@ -1,0 +1,306 @@
+//colors
+$alabaster: rgba(250, 250, 250, 1);
+$color_quill_gray_approx: rgba(211, 211, 211, 1);
+$color_gallery_approx: rgba(240, 240, 240, 1);
+$color_pink_swan_approx: rgba(187, 187, 187, 1);
+$color_puerto_rico_approx: rgba(63, 184, 175, 1);
+$color_mine_shaft_45_approx: rgba(51, 51, 51, .45);
+$color_alto_approx: rgba(217, 217, 217, 1);
+$white: rgba(255, 255, 255, 1);
+$color_cararra_approx: rgba(235, 235, 235, 1);
+$color_mercury_approx: rgba(232, 231, 230, 1);
+$color_mountain_mist_approx: rgba(153, 153, 153, 1);
+$color_celeste_approx: rgba(204, 204, 204, 1);
+$color_silver_chalice_approx: rgba(170, 170, 170, 1);
+$black: rgba(0, 0, 0, 1);
+
+//@extend-elements
+//original selectors
+//.noUi-target, .noUi-target *
+%extend_1 {
+  //vendor-prefix found
+  //-webkit-touch-callout: none
+  //vendor-prefix found
+  //-webkit-tap-highlight-color: transparent
+  //vendor-prefix found
+  //-webkit-user-select: none
+  //vendor-prefix found
+  //-ms-touch-action: none
+  touch-action: none;
+  //vendor-prefix found
+  //-ms-user-select: none
+  //vendor-prefix found
+  //-moz-user-select: none
+  //Instead of the line below you could use @include user-select($select)
+  user-select: none;
+  //vendor-prefix found
+  //-moz-box-sizing: border-box
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: border-box;
+}
+
+//original selectors
+//.noUi-handle:after, .noUi-handle:before
+%extend_2 {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 1px;
+  background: $color_mercury_approx;
+  left: 14px;
+  top: 6px;
+}
+
+//original selectors
+//.noUi-vertical .noUi-handle:after, .noUi-vertical .noUi-handle:before
+%extend_3 {
+  width: 14px;
+  height: 1px;
+  left: 6px;
+  top: 14px;
+}
+
+
+.noUi-target {
+  @extend %extend_1;
+  position: relative;
+  direction: ltr;
+  background: $alabaster;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 4px;
+  border: 1px solid $color_quill_gray_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 1px 1px $color_gallery_approx,0 3px 6px -5px $color_pink_swan_approx;
+  * {
+    @extend %extend_1;
+  }
+}
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  //vendor-prefix found
+  //-webkit-transform: translate3d(0,0,0)
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate3d(0,0,0);
+}
+.noUi-connect {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: $color_puerto_rico_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 0 3px $color_mine_shaft_45_approx;
+  //vendor-prefix found
+  //-webkit-transition: background 450ms
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: background 450ms;
+}
+.noUi-origin {
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+  border: 1px solid $color_alto_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 3px;
+  background: $white;
+  cursor: default;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 0 1px $white,inset 0 1px 7px $color_cararra_approx,0 3px 6px -3px $color_pink_swan_approx;
+  //vendor-prefix found
+  //-webkit-transform: translate3d(0,0,0)
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate3d(0,0,0);
+  &:after {
+    @extend %extend_2;
+    left: 17px;
+  }
+  &:before {
+    @extend %extend_2;
+  }
+}
+.noUi-state-tap {
+  .noUi-connect {
+    //vendor-prefix found
+    //-webkit-transition: top .3s,right .3s,bottom .3s,left .3s
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: top .3s,right .3s,bottom .3s,left .3s;
+  }
+  .noUi-origin {
+    //vendor-prefix found
+    //-webkit-transition: top .3s,right .3s,bottom .3s,left .3s
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: top .3s,right .3s,bottom .3s,left .3s;
+  }
+}
+.noUi-horizontal {
+  height: 18px;
+  .noUi-handle {
+    width: 34px;
+    height: 28px;
+    left: -17px;
+    top: -6px;
+  }
+  .noUi-tooltip {
+    //vendor-prefix found
+    //-webkit-transform: translate(-50%,0)
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: translate(-50%,0);
+    left: 50%;
+    bottom: 120%;
+  }
+}
+.noUi-vertical {
+  width: 18px;
+  .noUi-handle {
+    width: 28px;
+    height: 34px;
+    left: -6px;
+    top: -17px;
+    &:after {
+      @extend %extend_3;
+      top: 17px;
+    }
+    &:before {
+      @extend %extend_3;
+    }
+  }
+  .noUi-draggable {
+    cursor: ns-resize;
+  }
+  .noUi-tooltip {
+    //vendor-prefix found
+    //-webkit-transform: translate(0,-50%)
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: translate(0,-50%);
+    top: 50%;
+    right: 120%;
+  }
+}
+.noUi-draggable {
+  cursor: ew-resize;
+}
+.noUi-active {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 0 1px $white,inset 0 1px 7px $color_alto_approx,0 3px 6px -3px $color_pink_swan_approx;
+}
+[disabled] {
+  .noUi-connect {
+    background: $color_pink_swan_approx;
+  }
+  .noUi-handle {
+    cursor: not-allowed;
+  }
+  &.noUi-handle {
+    cursor: not-allowed;
+  }
+  &.noUi-target {
+    cursor: not-allowed;
+  }
+}
+.noUi-pips {
+  //vendor-prefix found
+  //-moz-box-sizing: border-box
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: border-box;
+  position: absolute;
+  color: $color_mountain_mist_approx;
+  * {
+    //vendor-prefix found
+    //-moz-box-sizing: border-box
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+  }
+}
+.noUi-value {
+  position: absolute;
+  text-align: center;
+}
+.noUi-value-sub {
+  color: $color_celeste_approx;
+  font-size: 10px;
+}
+.noUi-marker {
+  position: absolute;
+  background: $color_celeste_approx;
+}
+.noUi-marker-large {
+  background: $color_silver_chalice_approx;
+}
+.noUi-marker-sub {
+  background: $color_silver_chalice_approx;
+}
+.noUi-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+.noUi-value-horizontal {
+  //vendor-prefix found
+  //-webkit-transform: translate3d(-50%,50%,0)
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate3d(-50%,50%,0);
+}
+.noUi-marker-horizontal {
+  &.noUi-marker {
+    margin-left: -1px;
+    width: 2px;
+    height: 5px;
+  }
+  &.noUi-marker-sub {
+    height: 10px;
+  }
+  &.noUi-marker-large {
+    height: 15px;
+  }
+}
+.noUi-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+}
+.noUi-value-vertical {
+  //vendor-prefix found
+  //-webkit-transform: translate3d(0,50%,0)
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate3d(0,50%,0);
+  padding-left: 25px;
+}
+.noUi-marker-vertical {
+  &.noUi-marker {
+    width: 5px;
+    height: 2px;
+    margin-top: -1px;
+  }
+  &.noUi-marker-sub {
+    width: 10px;
+  }
+  &.noUi-marker-large {
+    width: 15px;
+  }
+}
+.noUi-tooltip {
+  display: block;
+  position: absolute;
+  border: 1px solid $color_alto_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 3px;
+  background: $white;
+  color: $black;
+  padding: 5px;
+  text-align: center;
+}
+.noUi-state-drag * {
+  cursor: inherit!important;
+}
